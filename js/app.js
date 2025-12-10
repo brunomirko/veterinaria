@@ -4,7 +4,6 @@ const telefonoInput = document.querySelector('#telefono');
 const fechaInput = document.querySelector('#fecha');
 const horaInput = document.querySelector('#hora');
 const sintomasInput = document.querySelector('#sintomas');
-
 const contenedorCitas = document.querySelector('#citas');
 
 // Formulario nuevas citas
@@ -13,9 +12,7 @@ formulario.addEventListener('submit', nuevaCita);
 
 const heading = document.querySelector('#administra');
 
-
 let editando = false;
-
 
 eventListeners();
 function eventListeners() {
@@ -35,7 +32,6 @@ const citaObj = {
     hora:'',
     sintomas: ''
 }
-
 
 function datosCita(e) {
     //  console.log(e.target.name) // Obtener el Input
@@ -59,7 +55,6 @@ class Citas {
 }
 
 class UI {
-
     constructor({citas}) {
         this.textoHeading(citas);
     }
@@ -86,11 +81,8 @@ class UI {
    }
 
    imprimirCitas({citas}) { // Se puede aplicar destructuring desde la función...
-       
         this.limpiarHTML();
-
         this.textoHeading(citas);
-
         citas.forEach(cita => {
             const {mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
@@ -156,14 +148,12 @@ class UI {
    }
 }
 
-
 const administrarCitas = new Citas();
 console.log(administrarCitas);
 const ui = new UI(administrarCitas);
 
 function nuevaCita(e) {
     e.preventDefault();
-
     const {mascota, propietario, telefono, fecha, hora, sintomas } = citaObj;
 
     if( mascota === '' || propietario === '' || telefono === '' || fecha === ''  || hora === '' || sintomas === '' ) {
@@ -188,7 +178,6 @@ function nuevaCita(e) {
     ui.imprimirCitas(administrarCitas);
     reiniciarObjeto();
     formulario.reset();
-
 }
 
 function reiniciarObjeto() {
